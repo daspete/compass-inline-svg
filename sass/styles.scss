@@ -1,0 +1,10 @@
+@import 'compass/reset';
+
+@import 'functions/svg-shape';
+@import 'mixins/inline-svg';
+
+.arrow-down {
+    width: 50px;
+    height: 100px;
+    @include svg-triangle(50,100, $fillColor: #f00);
+}

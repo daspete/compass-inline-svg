@@ -1,0 +1,5 @@
+@function svg-shape($width, $height, $shape){
+  $svg: '<svg xmlns="http://www.w3.org/2000/svg" width="'+$width+'" height="'+$height+'">'+$shape+'</svg>';
+
+  @return 'data:image/svg+xml;charset=utf-8;base64,'+base64Encode($svg);
+}

@@ -1,0 +1,17 @@
+@mixin svg-polygon($width: 20, $height: 20, $points: '10,0 20,20 0,20', $strokeWidth: 0, $strokeColor: rgba(0,0,0,0.1), $fillColor: rgba(0,0,0,0.1), $shapeID: 'polygon'){
+  $shape: '<polygon id="'+$shapeID+'" points="'+$points+'" style="fill:'+$fillColor+';stroke:'+$strokeColor+';stroke-width:'+$strokeWidth+'" />';
+
+  background-image: url(svg-shape($width, $height, $shape));
+}
+
+@mixin svg-circle($radius: 10, $strokeWidth: 0, $strokeColor: rgba(0,0,0,0.1), $fillColor: rgba(0,0,0,0.1)){
+  $shape: '<ellipse cx="'+$radius+'" cy="'+$radius+'" rx="'+$radius+'" ry="'+$radius+'" style="fill:'+$fillColor+';stroke:'+$strokeColor+';stroke-width:'+$strokeWidth+'" />';
+
+  background-image: url(svg-shape($radius*2, $radius*2, $shape));
+}
+
+@mixin svg-triangle($width: 20, $height: 20, $strokeWidth: 0, $strokeColor: rgba(0,0,0,0.1), $fillColor: rgba(0,0,0,0.1), $shapeID: 'svg'+random(99999)){
+    $points:($width/2)+',0 '+$width+','+$height+' '+'0, '+$height;
+
+    @include svg-polygon($width, $height, $points, $strokeWidth, $strokeColor, $fillColor, $shapeID);
+}
